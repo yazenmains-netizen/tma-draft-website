@@ -418,6 +418,60 @@
   links.forEach(l => {
     if (l.href === window.location.href) l.classList.add('active');
   });
+
+  // ── Stats count-up ──────────────────────────────────
+  // Parse a stat element: extract target number, prefix (e.g. comma formatting), suffix
+  function parseStat(el) {
+    const raw = el.textContent.trim();
+    // e.g. "2,000+" → target 2000, suffix "+", useComma true
+    // e.g. "15+"    → target 15,  suffix "+"
+    // e.g. "98%"    → target 98,  suffix "%"
+    // e.g. "12"     → target 12,  suffix ""
+    const match = raw.match(/^([\d,]+)([%+]?)$/);
+    if (!match) return null;
+    const target = parseInt(match[1].replace(/,/g, ''), 10);
+    const suffix = match[2] || '';
+    const useComma = match[1].includes(',');
+    return { target, suffix, useComma };
+  }
+
+  function formatNum(n, useComma) {
+    if (useComma) return n.toLocaleString('en-GB');
+    return String(n);
+  }
+
+  function animateCount(el, parsed) {
+    const { target, suffix, useComma } = parsed;
+    const duration = 1800; // ms
+    const start = performance.now();
+    // ease-out quad
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const current = Math.round(eased * target);
+      el.textContent = formatNum(current, useComma) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Collect all stat elements on the page
+  const statEls = document.querySelectorAll('.hero-stat-num, .stat-num');
+  const animated = new Set();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animated.has(entry.target)) {
+        animated.add(entry.target);
+        const parsed = parseStat(entry.target);
+        if (parsed) animateCount(entry.target, parsed);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  statEls.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
