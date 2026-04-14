@@ -258,6 +258,7 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
   opacity: .85; flex-shrink: 0;
   transition: opacity .2s;
 }
+.marquee-track img.logo-lg { height: 72px; }
 .marquee-track img:hover { opacity: 1; }
 @keyframes marquee {
   from { transform: translateX(0); }
