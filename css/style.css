@@ -107,7 +107,7 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
   display: flex; align-items: center; justify-content: space-between;
   height: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
 }
-.nav-logo img { height: 64px; width: auto; mix-blend-mode: screen; }
+.nav-logo img { height: 64px; width: auto; }
 .nav-links {
   display: flex; gap: 2px; align-items: center;
 }
