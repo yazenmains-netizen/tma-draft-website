@@ -311,6 +311,7 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
   margin-bottom: 20px;
 }
 .service-card-icon svg { width: 24px; height: 24px; color: var(--accent); }
+.service-card-icon img { width: 28px; height: 28px; object-fit: contain; }
 .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
 .service-card p  { font-size: .9rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
 .service-card-link {
