@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Value | TMA Property Maintenance</title>
+  <meta name="description" content="TMA Property Maintenance's commitment to social value — local employment, apprenticeships, community investment, and environmental responsibility across the Midlands." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/tma-logo-Ce4q3ohI.png" />
+  <style>
+    .sv-hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,196,204,.15); border: 1px solid rgba(0,196,204,.3);
+      color: var(--accent); font-size: .75rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
+    }
+    .sv-pillar-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 32px;
+      margin-top: 56px;
+    }
+    .sv-pillar {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 36px 32px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .sv-pillar:hover { border-color: var(--accent); box-shadow: 0 4px 24px rgba(0,196,204,.1); }
+    .sv-pillar-icon {
+      width: 52px; height: 52px; background: rgba(0,196,204,.1);
+      border-radius: var(--radius); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 20px;
+    }
+    .sv-pillar-icon svg { width: 26px; height: 26px; color: var(--accent); }
+    .sv-pillar h3 { font-size: 1.15rem; margin-bottom: 12px; color: var(--text); }
+    .sv-pillar p  { font-size: .9rem; color: var(--text-muted); line-height: 1.7; }
+    .sv-pillar ul { margin-top: 14px; display: flex; flex-direction: column; gap: 7px; }
+    .sv-pillar ul li {
+      font-size: .875rem; color: var(--text-muted);
+      padding-left: 18px; position: relative;
+    }
+    .sv-pillar ul li::before {
+      content: ''; position: absolute; left: 0; top: 8px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent);
+    }
+    .sv-impact-strip {
+      background: var(--bg-dark);
+      padding: 80px 0;
+    }
+    .sv-impact-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1px; background: var(--border-dark);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .sv-impact-item {
+      background: var(--bg-dark); padding: 40px 28px; text-align: center;
+    }
+    .sv-impact-num {
+      font-size: 2.6rem; font-weight: 900; color: var(--accent);
+      letter-spacing: -0.03em; line-height: 1;
+    }
+    .sv-impact-label {
+      font-size: .75rem; font-weight: 600; color: rgba(255,255,255,.5);
+      text-transform: uppercase; letter-spacing: .08em; margin-top: 10px;
+    }
+    .sv-commitment-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      align-items: start; margin-top: 56px;
+    }
+    .sv-commitment-item {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 28px; background: var(--bg-alt);
+      border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .sv-commitment-icon {
+      flex-shrink: 0; width: 44px; height: 44px;
+      background: rgba(0,196,204,.1); border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sv-commitment-icon svg { width: 22px; height: 22px; color: var(--accent); }
+    .sv-commitment-item h4 { font-size: 1rem; margin-bottom: 8px; }
+    .sv-commitment-item p  { font-size: .875rem; color: var(--text-muted); line-height: 1.65; }
+    @media (max-width: 1024px) {
+      .sv-pillar-grid { grid-template-columns: repeat(2,1fr); }
+      .sv-impact-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      .sv-pillar-grid { grid-template-columns: 1fr; }
+      .sv-impact-grid { grid-template-columns: 1fr 1fr; }
+      .sv-commitment-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="images/tma-logo-Ce4q3ohI.png" alt="TMA Property Maintenance" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About Us</a>
+      <a href="social-values.html" class="active">Social Value</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:01543277774">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        01543 277774
+      </a>
+      <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About Us</a>
+  <a href="social-values.html">Social Value</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary">Get a Quote</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('images/home-hero-B3lv0VZS.jpg'); background-position: center 35%;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Social Value</span>
+      </div>
+      <div class="sv-hero-pill">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Our Commitment
+      </div>
+      <h1>More Than Maintenance.<br>A Commitment To Community.</h1>
+      <p class="lead" style="margin-top:16px; max-width:580px;">At TMA we believe the work we do creates more than fixed buildings — it creates stronger communities, local jobs, and lasting opportunities for the people we serve.</p>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section" style="background: var(--bg-alt); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <p class="label">Why Social Value Matters</p>
+        <h2 class="display-lg" style="color:var(--text);">Delivering Value Beyond The Contract</h2>
+      </div>
+      <div>
+        <p class="lead" style="color:var(--text-muted);">Housing associations and local authorities need contractors who contribute to their wider social objectives — not just those who complete the work. TMA has been built around that principle from day one.</p>
+        <p style="color:var(--text-muted); margin-top:16px;">From hiring locally and investing in apprenticeships to reducing our environmental footprint and supporting the communities we operate in, social value is embedded into how we work — not added as an afterthought.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header centered">
+      <p class="label">Our Social Value Pillars</p>
+      <h2 class="display-md">Six Commitments We Stand Behind</h2>
+      <p>Every contract we take on is an opportunity to deliver value beyond the scope of works. These are the commitments we make to every client.</p>
+    </div>
+
+    <div class="sv-pillar-grid">
+
+      <div class="sv-pillar">
+        <div class="sv-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Local Employment &amp; Skills</h3>
+        <p>We prioritise recruiting from the communities we work in. When new contracts begin, our first call is to local job centres, community groups, and employment schemes.</p>
+        <ul>
+          <li>Directly employed local operatives — no agency labour</li>
+          <li>Active engagement with local employment programmes</li>
+          <li>Fair wages above the National Living Wage</li>
+          <li>Guaranteed hours and employment stability</li>
+        </ul>
+      </div>
+
+      <div class="sv-pillar">
+        <div class="sv-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3>Apprenticeships &amp; Training</h3>
+        <p>We invest in the next generation of tradespeople through apprenticeship programmes, in-house training, and partnerships with local colleges and training providers.</p>
+        <ul>
+          <li>Multi-trade apprenticeship programmes</li>
+          <li>NVQ pathways for all core disciplines</li>
+          <li>Mentoring by experienced operatives</li>
+          <li>Partnerships with Midlands training providers</li>
+        </ul>
+      </div>
+
+      <div class="sv-pillar">
+        <div class="sv-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Community Investment</h3>
+        <p>We support the communities our clients serve through charitable giving, volunteering, and contributing to local initiatives that improve quality of life for residents.</p>
+        <ul>
+          <li>Annual community fund for resident-led projects</li>
+          <li>Staff volunteering days in contract areas</li>
+          <li>Support for local food banks and charities</li>
+          <li>Resident engagement where requested by clients</li>
+        </ul>
+      </div>
+
+      <div class="sv-pillar">
+        <div class="sv-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Environmental Responsibility</h3>
+        <p>We are committed to reducing the environmental impact of our operations, from the materials we use to the vehicles we drive and the waste we generate on site.</p>
+        <ul>
+          <li>Waste segregation and recycling on all sites</li>
+          <li>Responsible sourcing of sustainable materials</li>
+          <li>Fleet transitioning to low-emission vehicles</li>
+          <li>Working towards a carbon reduction plan</li>
+        </ul>
+      </div>
+
+      <div class="sv-pillar">
+        <div class="sv-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Equality, Diversity &amp; Inclusion</h3>
+        <p>We are committed to building an inclusive workplace that reflects the communities we serve — where everyone is treated with dignity, fairness, and respect.</p>
+        <ul>
+          <li>Equal opportunities employer — all backgrounds welcome</li>
+          <li>Anti-discrimination policy embedded in all contracts</li>
+          <li>Support for underrepresented groups in the trades</li>
+          <li>Regular EDI training across all staff levels</li>
+        </ul>
+      </div>
+
+      <div class="sv-pillar">
+        <div class="sv-pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Health, Safety &amp; Wellbeing</h3>
+        <p>Our operatives are our greatest asset. We invest in their physical and mental wellbeing, maintaining a safety culture that goes far beyond minimum compliance.</p>
+        <ul>
+          <li>Mental health first aiders across the business</li>
+          <li>Employee Assistance Programme (EAP) for all staff</li>
+          <li>Regular toolbox talks on wellbeing and safety</li>
+          <li>Zero tolerance for unsafe working conditions</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<div class="sv-impact-strip">
+  <div class="container">
+    <div class="section-header centered" style="margin-bottom:48px;">
+      <p class="label" style="color:var(--accent);">Our Impact</p>
+      <h2 class="display-md" style="color:#fff;">Putting Numbers Behind Our Commitments</h2>
+    </div>
+    <div class="sv-impact-grid">
+      <div class="sv-impact-item">
+        <div class="sv-impact-num">100%</div>
+        <div class="sv-impact-label">Directly Employed Workforce</div>
+      </div>
+      <div class="sv-impact-item">
+        <div class="sv-impact-num">30+</div>
+        <div class="sv-impact-label">Local Jobs Supported</div>
+      </div>
+      <div class="sv-impact-item">
+        <div class="sv-impact-num">12+</div>
+        <div class="sv-impact-label">Apprentices Trained</div>
+      </div>
+      <div class="sv-impact-item">
+        <div class="sv-impact-num">£0</div>
+        <div class="sv-impact-label">Agency Labour Used</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMITMENTS DETAIL -->
+<section class="section">
+  <div class="container">
+    <div class="section-header centered">
+      <p class="label">How We Deliver</p>
+      <h2 class="display-md">Social Value In Practice</h2>
+      <p>These are the day-to-day practices that underpin our social value commitments on every contract we deliver.</p>
+    </div>
+    <div class="sv-commitment-grid">
+
+      <div class="sv-commitment-item">
+        <div class="sv-commitment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h4>DBS-Checked Operatives</h4>
+          <p>Every TMA operative working in occupied social housing is DBS checked, ensuring residents are safe and clients meet their safeguarding obligations without additional burden.</p>
+        </div>
+      </div>
+
+      <div class="sv-commitment-item">
+        <div class="sv-commitment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div>
+          <h4>Local Supply Chain</h4>
+          <p>Where possible we source materials from local and regional suppliers, keeping spend within the communities we serve and reducing transport emissions.</p>
+        </div>
+      </div>
+
+      <div class="sv-commitment-item">
+        <div class="sv-commitment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <h4>Social Value Reporting</h4>
+          <p>We provide clients with regular social value reporting, quantifying local employment impact, apprenticeship hours, community contributions, and environmental metrics.</p>
+        </div>
+      </div>
+
+      <div class="sv-commitment-item">
+        <div class="sv-commitment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div>
+          <h4>Resident-First Approach</h4>
+          <p>Our operatives are trained to interact with residents respectfully and sensitively — especially in supported housing and properties occupied by vulnerable tenants.</p>
+        </div>
+      </div>
+
+      <div class="sv-commitment-item">
+        <div class="sv-commitment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <div>
+          <h4>Fair Pay Commitment</h4>
+          <p>All TMA employees are paid at or above the Real Living Wage. We do not use zero-hours contracts, and every member of our team receives employment rights from day one.</p>
+        </div>
+      </div>
+
+      <div class="sv-commitment-item">
+        <div class="sv-commitment-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div>
+          <h4>Modern Slavery Policy</h4>
+          <p>TMA has a zero tolerance approach to modern slavery and human trafficking. We conduct due diligence across our entire supply chain and publish our annual statement in line with legislation.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
+      <div>
+        <h2>Ready to Work With Us?</h2>
+        <p>Discuss how TMA can support your social value objectives alongside your maintenance programme.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+        <a href="tel:01543277774" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          01543 277774
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo" src="images/tma-logo-Ce4q3ohI.png" alt="TMA Property Maintenance" />
+        <p>Specialist property maintenance contractors for housing associations and local authorities across the Midlands. Fully accredited, fully insured.</p>
+        <p style="margin-top:16px; font-size:.85rem; color:var(--text-muted);">South Staffordshire, West Midlands</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/electrics.html">Electrics</a></li>
+          <li><a href="services/plumbing.html">Plumbing</a></li>
+          <li><a href="services/roofing.html">Roofing</a></li>
+          <li><a href="services/gas-works.html">Gas Works</a></li>
+          <li><a href="services/carpentry.html">Carpentry</a></li>
+          <li><a href="services/groundworks.html">Groundworks</a></li>
+          <li><a href="services/plastering.html">Plastering</a></li>
+          <li><a href="services/scaffolding.html">Scaffolding</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="social-values.html">Social Value</a></li>
+          <li><a href="services.html">All Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:01543277774">01543 277774</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@tmaproperty.com">info@tmaproperty.com</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>South Staffordshire,<br>West Midlands</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 TMA Property Maintenance Ltd. All rights reserved.</p>
+      <div class="footer-accred">
+        <img src="images/chas-Cvc4F8Mo.png" alt="CHAS" />
+        <img src="images/nfrc-jTtckWEL.png" alt="NFRC" />
+        <img src="images/napit-BFwmCKSb.png" alt="NAPIT" />
+        <img src="images/gassafe-Bql8y3pY.png" alt="Gas Safe" />
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
+</script>
+</body>
+</html>
