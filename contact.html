@@ -18,6 +18,17 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
+      <div class="nav-dropdown-wrap">
+        <a class="nav-dropdown-trigger">
+          Our Process
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-dropdown">
+          <a href="process/planned-works.html">Planned Works</a>
+          <a href="process/reactive-works.html">Reactive Works</a>
+          <a href="process/frameworks.html">Frameworks</a>
+        </div>
+      </div>
       <a href="about.html">About Us</a>
       <a href="social-values.html">Social Value</a>
       <a href="contact.html" class="active">Contact</a>
@@ -35,6 +46,10 @@
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
+  <span class="mobile-submenu-label">Our Process</span>
+  <a href="process/planned-works.html" class="mobile-sub-link">Planned Works</a>
+  <a href="process/reactive-works.html" class="mobile-sub-link">Reactive Works</a>
+  <a href="process/frameworks.html" class="mobile-sub-link">Frameworks</a>
   <a href="about.html">About Us</a>
   <a href="social-values.html">Social Value</a>
   <a href="contact.html">Contact</a>
@@ -66,7 +81,7 @@
       <div>
         <p class="label">Get in Touch</p>
         <h2 class="display-md" style="margin-bottom:32px;">Ask Us Anything</h2>
-        <form class="contact-form" action="#" method="post">
+        <form class="contact-form" id="contact-form">
           <div class="form-row">
             <div class="field">
               <label for="name">Full Name *</label>
@@ -109,7 +124,13 @@
             <label for="message">Your Message *</label>
             <textarea id="message" name="message" placeholder="Tell us about your project, contract requirements, or any questions you have…" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="align-self:flex-start; padding:16px 36px;">Send Enquiry</button>
+          <button type="submit" class="btn btn-primary" id="submit-btn" style="align-self:flex-start; padding:16px 36px;">Send Enquiry</button>
+          <div id="form-success" style="display:none; margin-top:16px; padding:16px 20px; background:#f0faf4; border:1px solid #86efac; border-radius:8px; color:#166534; font-size:.95rem;">
+            ✓ Thanks! Your enquiry has been sent. We'll be in touch within 24 hours.
+          </div>
+          <div id="form-error" style="display:none; margin-top:16px; padding:16px 20px; background:#fef2f2; border:1px solid #fca5a5; border-radius:8px; color:#991b1b; font-size:.95rem;">
+            Something went wrong — please try again or call us on <a href="tel:01543277774" style="color:#991b1b; font-weight:600;">01543 277774</a>.
+          </div>
         </form>
       </div>
 
@@ -231,6 +252,50 @@
 
 <script>
   document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('open'));
+
+  // ── Contact form → webhook ──────────────────────────────────────────────
+  const WEBHOOK_URL = 'https://hook.eu1.make.com/st5nsb7c073dp6jz05p3y6om9je76hgr';
+
+  document.getElementById('contact-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+
+    const payload = {
+      name:         document.getElementById('name').value.trim(),
+      phone:        document.getElementById('phone').value.trim(),
+      email:        document.getElementById('email').value.trim(),
+      organisation: document.getElementById('organisation').value.trim(),
+      service:      document.getElementById('service').value,
+      message:      document.getElementById('message').value.trim(),
+      submitted_at: new Date().toISOString()
+    };
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error('Bad response');
+
+      successMsg.style.display = 'block';
+      this.reset();
+    } catch (err) {
+      errorMsg.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Enquiry';
+    }
+  });
 </script>
 </body>
 </html>
