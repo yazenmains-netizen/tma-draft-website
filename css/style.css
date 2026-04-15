@@ -270,11 +270,11 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
   width: max-content;
 }
 .marquee-track img {
-  height: 65px; width: auto; object-fit: contain;
+  height: 85px; width: auto; object-fit: contain;
   opacity: .85; flex-shrink: 0;
   transition: opacity .2s;
 }
-.marquee-track img.logo-lg { height: 90px; }
+.marquee-track img.logo-lg { height: 115px; }
 .marquee-track img:hover { opacity: 1; }
 @keyframes marquee {
   from { transform: translateX(0); }
@@ -379,6 +379,7 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
 }
 .accred-item:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(0,196,204,.12); }
 .accred-item img { height: 84px; width: auto; object-fit: contain; }
+.client-logos .accred-item img { height: 56px; }
 
 /* ── CTA Banner ─────────────────────────────────────── */
 .cta-banner {
@@ -425,7 +426,7 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
 }
 .footer-bottom p { font-size: .8rem; color: var(--text-muted); }
 .footer-accred {
-  display: flex; gap: 16px; align-items: center;
+  display: flex; flex-wrap: nowrap; gap: 16px; align-items: center;
 }
 .footer-accred img { height: 42px; width: auto; opacity: .65; }
 
