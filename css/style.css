@@ -378,7 +378,7 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
   transition: border-color .2s, box-shadow .2s;
 }
 .accred-item:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(0,196,204,.12); }
-.accred-item img { height: 56px; width: auto; object-fit: contain; }
+.accred-item img { height: 84px; width: auto; object-fit: contain; }
 
 /* ── CTA Banner ─────────────────────────────────────── */
 .cta-banner {
@@ -427,7 +427,7 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
 .footer-accred {
   display: flex; gap: 16px; align-items: center;
 }
-.footer-accred img { height: 28px; width: auto; opacity: .65; }
+.footer-accred img { height: 42px; width: auto; opacity: .65; }
 
 /* ── Service Sub-page ───────────────────────────────── */
 .service-hero {
