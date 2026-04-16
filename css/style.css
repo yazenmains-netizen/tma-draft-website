@@ -28,7 +28,7 @@
   --font:        'Inter', system-ui, -apple-system, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: var(--font);
@@ -37,6 +37,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* ── Force white bg sections inherit correctly ─────── */
@@ -397,8 +398,8 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
 
 /* ── Footer ─────────────────────────────────────────── */
 .footer {
-  background: #ffffff;
-  border-top: 2px solid var(--border);
+  background: #3A3278;
+  border-top: 2px solid rgba(255,255,255,0.08);
   padding: 72px 0 32px;
 }
 .footer-grid {
@@ -406,25 +407,25 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
   gap: 48px; margin-bottom: 64px;
 }
-.footer-brand p { color: var(--text-muted); font-size: .9rem; margin-top: 16px; line-height: 1.7; }
+.footer-brand p { color: rgba(255,255,255,0.65); font-size: .9rem; margin-top: 16px; line-height: 1.7; }
 .footer-logo { height: 72px; width: auto; max-width: 220px; margin-bottom: 20px; display: block; }
-.footer-col h4 { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; }
+.footer-col h4 { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
 .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
-.footer-col ul a { font-size: .9rem; color: var(--text-muted); transition: color .2s; }
+.footer-col ul a { font-size: .9rem; color: rgba(255,255,255,0.65); transition: color .2s; }
 .footer-col ul a:hover { color: var(--accent); }
 .footer-contact-item {
   display: flex; align-items: flex-start; gap: 10px;
-  font-size: .9rem; color: var(--text-muted); margin-bottom: 12px;
+  font-size: .9rem; color: rgba(255,255,255,0.65); margin-bottom: 12px;
 }
 .footer-contact-item svg { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
-.footer-contact-item a { color: var(--text-muted); }
+.footer-contact-item a { color: rgba(255,255,255,0.65); }
 .footer-contact-item a:hover { color: var(--accent); }
 .footer-bottom {
-  border-top: 1px solid var(--border); padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.12); padding-top: 32px;
   display: flex; align-items: center; justify-content: space-between;
   flex-wrap: wrap; gap: 16px;
 }
-.footer-bottom p { font-size: .8rem; color: var(--text-muted); }
+.footer-bottom p { font-size: .8rem; color: rgba(255,255,255,0.4); }
 .footer-accred {
   display: flex; flex-wrap: nowrap; gap: 16px; align-items: center;
 }
@@ -578,14 +579,49 @@ h1,h2,h3,h4,h5 { font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
   .nav-hamburger { display: flex; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .cta-banner-inner { flex-direction: column; text-align: center; }
-  .hero-stats { gap: 24px; }
-  .hero-ctas  { flex-direction: column; }
+  .hero-ctas  { flex-direction: column; align-items: center; }
   .footer-bottom { flex-direction: column; text-align: center; }
+
+  /* Nav logo — shrink to fit 64px nav height */
+  .nav-logo { padding: 4px 12px; }
+  .nav-logo img { height: 44px; }
+
+  /* Hero stats — wrap into 2×2 grid instead of overflowing */
+  .hero-stats { flex-wrap: wrap; gap: 20px; margin-top: 36px; padding-top: 24px; justify-content: center; width: 100%; }
+  .home-hero-content { width: 100%; }
+
+  /* Footer accred — allow logos to wrap on small screens */
+  .footer-accred { flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+  /* Marquee — prevent any horizontal bleed on mobile */
+  .marquee-section { overflow: hidden; max-width: 100vw; }
+  .marquee-viewport { max-width: 100%; }
+  .marquee-track img { height: 60px; }
+  .marquee-track img.logo-lg { height: 76px; }
+
+  /* Accreditation logos — slightly smaller */
+  .accred-item img { height: 64px; }
+
+  /* CTA buttons — fill width when stacked */
+  .cta-btns { width: 100%; flex-direction: column; }
+  .cta-btns .btn { justify-content: center; width: 100%; }
 }
 
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Fix borders in 2-col stats grid */
+  .stat-item { border-right: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark); }
+  .stat-item:nth-child(even) { border-right: none; }
+  .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+
+  /* Hero stats — tighter gap on very small screens */
+  .hero-stats { gap: 14px; }
+
+  /* Accreditation logos — smaller on tiny screens */
+  .accred-item { padding: 14px 18px; }
+  .accred-item img { height: 52px; }
 }
 
 /* ── Hero entrance animations ────────────────────────── */
